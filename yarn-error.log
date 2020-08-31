@@ -1,0 +1,56 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js
+
+PATH: 
+  C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files (x86)\Yarn\bin\;C:\Users\kokoy\AppData\Local\Microsoft\WindowsApps;;C:\Users\kokoy\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\kokoy\AppData\Roaming\npm;C:\Users\kokoy\AppData\Local\Yarn\bin
+
+Yarn version: 
+  1.22.4
+
+Node version: 
+  12.15.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  SyntaxError: D:\Workspace\Cypress Visual Regression\package.json: Unexpected token } in JSON at position 624
+      at JSON.parse (<anonymous>)
+      at C:\Program Files (x86)\Yarn\lib\cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (C:\Program Files (x86)\Yarn\lib\cli.js:310:30)
+      at C:\Program Files (x86)\Yarn\lib\cli.js:321:13
+
+npm manifest: 
+  {
+    "name": "cypress-test",
+    "version": "0.0.1",
+    "description": "",
+    "main": "index.js",
+    "dependencies": {
+      "cypress": "5.0.0",
+      "cypress-image-snapshot": "^3.1.1",
+      "cypress-multi-reporters": "^1.2.4",
+      "mocha-junit-reporter": "^1.23.3",
+      "mochawesome": "^6.1.1",
+      "mochawesome-merge": "^4.1.0",
+      "mochawesome-report-generator": "^5.1.0"
+  },
+  "devDependencies": {
+      "cypress-plugin-tab": "^1.0.5",
+      "cypress-xpath": "^1.4.1",
+      "mocha": "^7.1.0"
+  },
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "open": "cypress open"
+    },
+    "author": "",
+    "license": "ISC",
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
