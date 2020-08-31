@@ -1,0 +1,24 @@
+{
+    "env": {
+        "browser": true,
+        "es2020": true
+    },
+    "plugins": [
+        "cypress"
+    ],
+    "parserOptions": {
+        "ecmaVersion": 12,
+        "sourceType": "module"
+    },
+    "rules": {
+        //"cypress/no-unnecessary-waiting": "warn",
+        //"cypress/no-force": "warn",
+        //"cypress/assertion-before-screenshot": "warn"
+        "cypress/no-assigning-return-values": "error",       
+        "cypress/no-async-tests": "error"
+        
+      }
+    
+ 
+    
+}
