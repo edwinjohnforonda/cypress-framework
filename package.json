@@ -22,16 +22,24 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
-    "mocha": "^7.1.0"
+    "mocha": "^7.1.0",
+    "prettier-standard": "^16.4.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "open": "cypress open"
+    "open": "cypress open",
+    "format": "prettier-standard --format",
+    "precommit": "lint-staged"
   },
   "author": "",
   "license": "ISC",
   "reporter": "cypress-multi-reporters",
   "reporterOptions": {
     "configFile": "reporter-config.json"
+  },
+  "lint-staged": {
+    "*": [
+      "prettier-standard --lint"
+    ]
   }
 }

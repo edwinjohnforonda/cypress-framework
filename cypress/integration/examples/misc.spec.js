@@ -12,7 +12,9 @@ context('Misc', () => {
     // and force Cypress to re-query from the root element
     cy.get('.misc-table').within(() => {
       // ends the current chain and yields null
-      cy.contains('Cheryl').click().end()
+      cy.contains('Cheryl')
+        .click()
+        .end()
 
       // queries the entire table again
       cy.contains('Charles').click()
@@ -33,7 +35,8 @@ context('Misc', () => {
     // on CircleCI Windows build machines we have a failure to run bash shell
     // https://github.com/cypress-io/cypress/issues/5169
     // so skip some of the tests by passing flag "--env circle=true"
-    const isCircleOnWindows = Cypress.platform === 'win32' && Cypress.env('circle')
+    const isCircleOnWindows =
+      Cypress.platform === 'win32' && Cypress.env('circle')
 
     if (isCircleOnWindows) {
       cy.log('Skipping test on CircleCI')
@@ -52,26 +55,34 @@ context('Misc', () => {
     }
 
     cy.exec('echo Jane Lane')
-      .its('stdout').should('contain', 'Jane Lane')
+      .its('stdout')
+      .should('contain', 'Jane Lane')
 
     if (Cypress.platform === 'win32') {
       cy.exec('print cypress.json')
-        .its('stderr').should('be.empty')
+        .its('stderr')
+        .should('be.empty')
     } else {
       cy.exec('cat cypress.json')
-        .its('stderr').should('be.empty')
+        .its('stderr')
+        .should('be.empty')
 
       cy.exec('pwd')
-        .its('code').should('eq', 0)
+        .its('code')
+        .should('eq', 0)
     }
   })
 
   it('cy.focused() - get the DOM element that has focus', () => {
     // https://on.cypress.io/focused
-    cy.get('.misc-form').find('#name').click()
+    cy.get('.misc-form')
+      .find('#name')
+      .click()
     cy.focused().should('have.id', 'name')
 
-    cy.get('.misc-form').find('#description').click()
+    cy.get('.misc-form')
+      .find('#description')
+      .click()
     cy.focused().should('have.id', 'description')
   })
 
@@ -89,8 +100,8 @@ context('Misc', () => {
         scale: false,
         disableTimersAndAnimations: true,
         screenshotOnRunFailure: true,
-        beforeScreenshot () { },
-        afterScreenshot () { },
+        beforeScreenshot () {},
+        afterScreenshot () {}
       })
     })
   })
