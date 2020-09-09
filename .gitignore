@@ -1,2 +1,5 @@
 node_modules
 cypress/integration/tests
+cypress/results
+cypress/screenshots
+cypress/snapshots

@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "cypress-plugin-tab": "^1.0.5",
-    "cypress-xpath": "^1.4.1",
+    "cypress-xpath": "^1.6.0",
     "eslint": "^7.7.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.22.0",
@@ -29,7 +29,15 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "open": "cypress open",
     "format": "prettier-standard --format",
-    "precommit": "lint-staged"
+    "precommit": "yarn format && lint-staged",
+    "delete:reports": "rm cypress/results/* || true",
+    "delete:diffimage": "rm -r cypress/screenshots/styleguidist/* || true && cd cypress/snapshots && find .  f -name '*diff*' -delete ",
+    "delete:visualregressiontest:images:all": "rm -r cypress/snapshots/visual-regression-test.spec.js/* || true && rm -r cypress/screenshot/visual-regression-test.spec.js/* || true",
+    "delete:visualregressiontest:images:electron": "rm -r cypress/snapshots/visual-regression-test/electron/* || true && cypress/screenshot/visual-regression-test/electron/* || true",
+    "prereport": "yarn delete:reports",
+    "mergereport": "yarn mochawesome-merge ./cypress/results/*.json -o ./cypress/results/mergedreport.json && yarn marge ./cypress/results/mergedreport.json --reportDir ./cypress/results/ --inline",
+    "baseline:visualregressiontest": "yarn delete:visualregressiontest:images:electron && cypress run --env isBaseline=true --spec \"cypress/integration/visual-regression-test.spec.js\" --headless --config video=false --reporter mochawesome",
+    "test:visualregressiontest": "yarn delete:visualregressiontest:images:electron && cypress run --spec \"cypress/integration/visual-regression-test.spec.js\" --headless --config video=false --reporter mochawesome"
   },
   "author": "",
   "license": "ISC",

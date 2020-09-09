@@ -1,1 +1,5 @@
-const promoHeader = '[class=demo]'
+const phpTravelsElements = {
+  promoHeader: '[class=demo]'
+}
+
+export { phpTravelsElements }
